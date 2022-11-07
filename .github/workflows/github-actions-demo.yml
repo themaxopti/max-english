@@ -1,7 +1,7 @@
 name: Max English
 on: 
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   init:
     runs-on: ubuntu-latest
