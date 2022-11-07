@@ -9,7 +9,7 @@ jobs:
       matrix:
         node-varsion: [ 17.x ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Starting Node.js ${{ matrix.node-version }}
         - uses: actions/setup-node@v3
         with:
