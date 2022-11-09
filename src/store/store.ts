@@ -3,13 +3,12 @@ import { useDispatch } from 'react-redux'
 import { ReduxModule } from '../core/redux.module'
 import { rootReducer } from '../modules/testModule/index'
 
-
 const RootReducer = combineReducers({
-    ...rootReducer
+  ...rootReducer,
 })
 
 export const reduxModule = new ReduxModule({
-    reducer: RootReducer
+  reducer: RootReducer,
 })
 
 const store = reduxModule.store

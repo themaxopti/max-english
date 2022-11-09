@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export function Home() {
     return (
@@ -10,6 +11,7 @@ export function Home() {
             </Head>
 
             <div className='opa'>opa</div>
+            <Link data-testid="link" href={'/some'}>some</Link>
         </div>
     )
 }
