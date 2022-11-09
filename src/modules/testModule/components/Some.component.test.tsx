@@ -19,6 +19,6 @@ test('test', async () => {
   const apa = render(<Home />)
   const el = screen.getByTestId('link')
   fireEvent.click(el)
-  const el2 = screen.getByText('some2')
+  const el2 = screen.getByText('some')
   expect(el2).toBeInTheDocument()
 })
