@@ -1,0 +1,94 @@
+@import '/styles/variables.scss';
+
+.header {
+    padding-top: 25px;
+    display: grid;
+    grid-template-columns: minmax(100px, 300px) minmax(100px, 600px) 1fr;
+    align-items: center;
+    margin: 0 auto;
+    $xxl: 1400px;
+    display: none;
+
+    &__logo {
+        div {
+            max-width: 180px;
+            width: 100%;
+            height: 70px;
+        }
+    }
+
+    &__links {
+        border: 1px solid red;
+        // max-width: 300px;
+        // width: 100%;
+        padding-left: 30%;
+        display: flex;
+        column-gap: 30px;
+
+        &__link {}
+
+        div {
+            // margin-left: 10%;
+
+        }
+    }
+
+    &__utils {
+        border: 1px solid red;
+        // max-width: 300px;
+        // width: 100%;
+        display: flex;
+        align-items: center;
+        column-gap: 86px;
+
+        .header__language {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            column-gap: 3px;
+        }
+
+        .heder__colors {
+            flex-grow: 0;
+            flex-shrink: 0;
+            width: 33px;
+            cursor: pointer;
+            height: 33px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        .header__user {
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+        }
+
+        .header__lang-color {
+            display: flex;
+            column-gap: 18px;
+        }
+
+    }
+}
+
+
+@media(max-width:$lg) {
+    .header__links {
+        padding-left: 10px;
+    }
+}
+
+
+@media(max-width:861px) {
+
+    .header {
+        grid-template-columns: minmax(100px, 200px) minmax(100px, 600px) 1fr;
+
+    }
+
+    .header__links {
+        padding-left: 10px;
+    }
+
+}

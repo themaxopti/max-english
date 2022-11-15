@@ -1,7 +1,16 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
 
 export function Home() {
+
+    const some = useSelector((state: RootState) => state.ops.some)
+    useEffect(() => {
+        console.log(some)
+    }, [])
+
     return (
         <div>
             <Head>

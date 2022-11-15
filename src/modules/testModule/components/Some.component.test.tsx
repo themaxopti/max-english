@@ -1,6 +1,8 @@
 import { Home } from 'modules/testModule/components/Some.component'
 import { useRouter } from 'next/router'
 import { fireEvent, render, screen } from '@testing-library/react'
+import { Provider } from 'react-redux'
+import store from '../../../store/store'
 
 jest.mock('next/router', () => ({
   useRouter: jest.fn(),
@@ -16,7 +18,11 @@ test('test', async () => {
     query: {},
     push: pushMock,
   })
-  const apa = render(<Home />)
+  const apa = render(
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  )
   const el = screen.getByTestId('link')
   fireEvent.click(el)
   const el2 = screen.getByText('some')

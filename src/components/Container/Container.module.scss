@@ -1,0 +1,9 @@
+$max-width: '1000px';
+
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  display: flex;
+  max-width: $max-width;
+}
