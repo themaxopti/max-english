@@ -6,3 +6,4 @@ import { Module } from '../../core/coreModule'
 // })
 
 // export const { component: NavbarDictionary } = dictionaryModule
+console.log('sonme')
