@@ -1,13 +1,16 @@
 @import '/styles/variables.scss';
 
+.idi {}
+
 .header {
     padding-top: 25px;
     display: grid;
-    grid-template-columns: minmax(100px, 300px) minmax(100px, 600px) 1fr;
+    grid-template-columns: minmax(100px, 300px) minmax(100px, 700px) 1fr;
+    column-gap: 20px;
     align-items: center;
     margin: 0 auto;
-    $xxl: 1400px;
-    display: none;
+    max-width: 1400px;
+    width: 100%;
 
     &__logo {
         div {
@@ -18,28 +21,60 @@
     }
 
     &__links {
-        border: 1px solid red;
+        // border: 1px solid red;
         // max-width: 300px;
         // width: 100%;
-        padding-left: 30%;
+        // padding-left: 0%;
         display: flex;
-        column-gap: 30px;
+        // column-gap: 30px;
+        height: 40px;
 
-        &__link {}
+    }
+
+    &__link {
+        transition: 0.3s;
+        position: relative;
+        color: black;
+        font-weight: 500;
+        max-width: 300px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+        cursor: pointer;
+
+
+        nav {
+            padding-left: 1rem;
+            padding-right: 5px;
+        }
 
         div {
-            // margin-left: 10%;
-
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #3194FC;
+            bottom: -2px;
         }
     }
 
+    .header__link-active {
+        background-color: #EEEEEE;
+    }
+
+    .language-arrow {
+        flex-basis: 1;
+        flex-grow: 1;
+    }
+
     &__utils {
-        border: 1px solid red;
         // max-width: 300px;
         // width: 100%;
         display: flex;
         align-items: center;
-        column-gap: 86px;
+        justify-content: right;
+        column-gap: 30px;
 
         .header__language {
             cursor: pointer;
@@ -66,16 +101,33 @@
 
         .header__lang-color {
             display: flex;
-            column-gap: 18px;
+            align-items: center;
+            column-gap: 40px;
         }
 
     }
 }
 
+.link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+@media(max-width:1165px) {
+    .header {
+        grid-template-columns: minmax(100px, 200px) minmax(100px, 800px) 1fr;
+    }
+}
 
 @media(max-width:$lg) {
     .header__links {
         padding-left: 10px;
+    }
+
+    .header {
+        display: none;
     }
 }
 

@@ -1,8 +1,15 @@
+@import '/styles/variables';
 $header-width: 50px;
 
 .navbar {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &-clicked {
+        transform: scale(1.2);
+    }
 }
 
 .header-mobile {
@@ -15,18 +22,24 @@ $header-width: 50px;
     padding-right: 1rem;
     background-color: white;
     display: flex;
+    display: none;
     width: 100%;
     justify-content: space-between;
     align-items: center;
 }
 
+.burger.burger-hide {
+    top: -110vh;
+}
+
 .burger {
+    transition: 1s;
     z-index: 1;
     position: fixed;
-    top: $header-width + 10px;
+    top: $header-width + 5px;
     width: 100vw;
     height: 100vh;
-    background-color: aqua;
+    background-color: #acd5ff;
 
     &__links {
         margin-top: 20px;
@@ -50,7 +63,15 @@ $header-width: 50px;
     }
 
 
-    &__link {}
+    &__link {
+        cursor: pointer;
+        max-width: 200px;
+
+        &-active {
+            color: #FF40BC;
+        }
+    }
+
 }
 
 .burger__container::-webkit-scrollbar-track {
@@ -65,4 +86,10 @@ $header-width: 50px;
 .burger__container::-webkit-scrollbar-thumb {
     background: #1976D2;
     border-radius: 5px;
+}
+
+@media(max-width:$lg) {
+    .header-mobile {
+        display: flex;
+    }
 }

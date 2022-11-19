@@ -1,0 +1,27 @@
+.circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    background-color: red;
+    cursor: pointer;
+}
+
+.circle__navigation {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle__language__content {
+    position: absolute;
+    padding: 1rem;
+    background-color: #EEEEEE;
+    top: 60px;
+    width: 100px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+}

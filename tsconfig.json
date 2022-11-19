@@ -22,7 +22,10 @@
     "paths": {
       "@Modules": [
         "modules/*"
-      ]
+      ],
+      "@Src": [
+        "/src/*"
+      ],
     },
   },
   "include": [

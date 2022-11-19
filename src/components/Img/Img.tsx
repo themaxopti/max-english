@@ -8,14 +8,11 @@ export interface ImgProps {
   src: string
 }
 
-export const Img: React.FC<ImgProps> = ({ height = 10, layOut = 'responsive', width = 10, src }) => {
-  return (
-    <Image
-      src={src}
-      alt=''
-      width={width}
-      layout={layOut}
-      height={height}
-    />
-  )
+export const Img: React.FC<ImgProps> = ({
+  height = 10,
+  layOut = 'responsive',
+  width = 10,
+  src
+}) => {
+  return <Image src={src} alt='' width={width} layout={layOut} height={height} />
 }

@@ -19,10 +19,6 @@ export const FormField: React.FC<FormFieldProps> = ({
   errorMessage,
   registerInput
 }) => {
-  useEffect(() => {
-    console.log(registerInput)
-  }, [])
-
   return (
     <div>
       <TextField
