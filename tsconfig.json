@@ -26,6 +26,15 @@
       "@Src": [
         "/src/*"
       ],
+      "@Store": [
+        "store/*"
+      ],
+      "@Components": [
+        "components/*"
+      ],
+      "@Utils": [
+        "utils/*"
+      ],
     },
   },
   "include": [

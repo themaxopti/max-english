@@ -9,11 +9,11 @@ export interface ModuleParams {
   reducer?: Reducer<any, AnyAction>
 }
 
-export class Module {
+export class Module<T, M, N, R> {
   public component?: React.FC
-  public reducer?: Reducer<any, AnyAction> | null = null
-  public modules?: undefined | Module[]
-  public rootReducer: Reducer<CombinedState<any>, AnyAction> | null = null
+  public reducer?: Reducer<T, AnyAction> | null = null
+  public modules?: undefined | M
+  public rootReducer: null = null
   private reducerName?: string
 
   constructor({ modules, slice, component, reducer }: ModuleParams) {
@@ -38,13 +38,13 @@ export class Module {
       }
       return {}
     }
+    // @ts-ignore
     this.modules.forEach(module => {
       const reducers = module.combineReducers()
       // @ts-ignore
       this.rootReducer = { ...this.rootReducer, ...reducers }
     })
     console.log(this.rootReducer)
-
     return this.rootReducer
   }
 

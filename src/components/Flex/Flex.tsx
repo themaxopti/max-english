@@ -17,6 +17,7 @@ export interface FlexProps {
   flexGrow?: '1' | '2' | '3'
   children?: any
   className?: string
+  style?: any
 }
 
 export const Flex: React.FC<FlexProps> = ({
@@ -29,7 +30,8 @@ export const Flex: React.FC<FlexProps> = ({
   flexBasis,
   justifyContent,
   rowGap,
-  className
+  className,
+  style
 }) => {
   return (
     <>
@@ -44,7 +46,8 @@ export const Flex: React.FC<FlexProps> = ({
           justifyContent,
           rowGap,
           flexGrow,
-          flexShrink
+          flexShrink,
+          ...style
         }}
       >
         {children}

@@ -4,18 +4,19 @@ import s from './Language.module.scss'
 import { useState, useCallback } from 'react'
 import { useAppearence } from '../../../../utils/motion/language'
 import { useMediaQuery } from 'react-responsive'
+import { LanguageBurger } from './LanguageBurger/LanguageBurger'
+import { useSelector } from 'react-redux'
+import { mainLanguageSelector } from '../../state/selectors/language.selectors'
 
-export const Language = () => {
+export const Language = React.memo(() => {
   const [active, setActive] = useState(false)
-  const [currentLanuage, setCurrentLanuage] = useState('en')
-  const languages = ['ru', 'en', 'uk']
-  const isBig = useMediaQuery({
-    query: '(min-width: 992px)'
-  })
+  // const [currentLanuage, setCurrentLanuage] = useState('en')
+  const currentLanuage = useSelector(mainLanguageSelector).title
 
   return (
     <>
       <motion.nav
+        data-testid='language'
         tabIndex={0}
         onBlur={() => {
           setActive(false)
@@ -30,13 +31,14 @@ export const Language = () => {
           whileHover={{ scale: 1.1 }}
           className={s.header__language}
         >
-          <motion.div>{currentLanuage}</motion.div>
+          <motion.div data-testid='language__current'>{currentLanuage}</motion.div>
           <svg width='10' fill='black' height='10' viewBox='0 0 20 20'>
             <path d='M0 7 L 20 7 L 10 16' />
           </svg>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
+          data-testid='language__burger'
           variants={{
             open: {
               clipPath: 'inset(0% 0% 0% 0% round 10px)',
@@ -61,12 +63,18 @@ export const Language = () => {
           className={s.header__language__content}
         >
           {languages.map((el, i) => (
-            <motion.div onClick={() => setCurrentLanuage(el)} whileHover={{ scale: 1.3 }} key={i}>
+            <motion.div
+              data-testid={`languages`}
+              onClick={() => setCurrentLanuage(el)}
+              whileHover={{ scale: 1.3 }}
+              key={i}
+            >
               {el}
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
+        <LanguageBurger />
       </motion.nav>
     </>
   )
-}
+})

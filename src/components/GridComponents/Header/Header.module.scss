@@ -32,7 +32,7 @@
     }
 
     &__link {
-        transition: 0.3s;
+        // transition: 0.3s;
         position: relative;
         color: black;
         font-weight: 500;
@@ -60,7 +60,7 @@
     }
 
     .header__link-active {
-        background-color: #EEEEEE;
+        background-color: #ffffff;
     }
 
     .language-arrow {

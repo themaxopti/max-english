@@ -4,16 +4,16 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { Container } from '../../Container/Container'
 import { Img } from '../../Img/Img'
 import Link from 'next/link'
-import { Flex } from '../../Flex/Flex'
-import { FormField } from '../../Form/FormField'
-import { LearningFormContainer } from '../../../modules/NavbarModule/components/Form/FormContainer'
-import classNames from 'classnames'
 import { useRouter } from 'next/router'
 import { MobileLearning } from '../../../modules/NavbarModule/components/mobileLearning/MobileLearning'
 import { MobileDictionary } from '../../../modules/NavbarModule/components/mobileDictionary/MobileDictionary'
 import st from '/styles/Nah.module.scss'
 import { Language } from '../../../modules/LanguageModule/components/Language/Language'
 import { MobileLanguage } from '../../../modules/LanguageModule/components/MobileLanguage/MobileLanguage'
+import { Logo } from '../Header/test/Logo'
+import { AddGroupFormContainer } from '../../../modules/NavbarModule/components/Groups/AddGroupFormContainer'
+import { useAppSelector } from '../../../store/store'
+import { mainLanguageSelector } from '../../../modules/LanguageModule/state/selectors/language.selectors'
 
 interface HeaderMobileProps {
   setIsClicked: (isClicked: boolean) => void
@@ -36,18 +36,21 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
   navbarClasses,
   clicked
 }) => {
+  const currentLanuageLinks = useAppSelector(mainLanguageSelector).header.links
+
   return (
     <>
       <Container padding='50px 0 0 0'>
         <div className={s['header-mobile']}>
           <div>
             <Link href={'/'}>
-              <Img
+              {/* <Img
                 height={40}
                 width={120}
                 src={'/images/GridComponents/logo.svg'}
                 layOut={'intrinsic'}
-              />
+              /> */}
+              <Logo className='app-logo-mobile' />
             </Link>
           </div>
           <div onClick={() => setIsClicked(!clicked)}>
@@ -59,9 +62,9 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
       <div className={burgerClasses}>
         <Container className={s.burger__container} rowGap='100px' columnDirection={true}>
           <div className={s.burger__links}>
-            {links.map((link, i) => (
-              <div key={i} onClick={() => pushToUrl(link.page)} className={linkClasses(link.page)}>
-                {link.page}
+            {currentLanuageLinks.map((link, i) => (
+              <div key={i} onClick={() => pushToUrl(link.link)} className={linkClasses(link.link)}>
+                {link.title}
               </div>
             ))}
             <MobileLanguage />
@@ -69,8 +72,9 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
           </div>
           {/* <Language /> */}
 
-          {/* <MobileLearning /> */}
           <MobileDictionary />
+          <AddGroupFormContainer />
+          {/* <MobileLearning /> */}
         </Container>
       </div>
     </>

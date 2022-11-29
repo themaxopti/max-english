@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Theme Should open theme burger 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <nav
+        class="circle__navigation"
+        data-testid="theme"
+        tabindex="0"
+      >
+        <div
+          class="circle"
+          data-testid="circle"
+          style="background: rgb(108, 255, 240);"
+        />
+        <div
+          class="circle__language__content"
+          data-testid="theme__burger"
+          style="clip-path: inset(0% 0% 0% 0% round 10px);"
+        >
+          <div
+            class="circle"
+            data-testid="circleEl"
+            style="background: rgb(44, 128, 255);"
+          />
+          <div
+            class="circle"
+            data-testid="circleEl"
+            style="background: rgb(220, 45, 54);"
+          />
+          <div
+            class="circle"
+            data-testid="circleEl"
+            style="background: rgb(108, 255, 240);"
+          />
+        </div>
+      </nav>
+    </div>
+  </body>,
+  "container": <div>
+    <nav
+      class="circle__navigation"
+      data-testid="theme"
+      tabindex="0"
+    >
+      <div
+        class="circle"
+        data-testid="circle"
+        style="background: rgb(108, 255, 240);"
+      />
+      <div
+        class="circle__language__content"
+        data-testid="theme__burger"
+        style="clip-path: inset(0% 0% 0% 0% round 10px);"
+      >
+        <div
+          class="circle"
+          data-testid="circleEl"
+          style="background: rgb(44, 128, 255);"
+        />
+        <div
+          class="circle"
+          data-testid="circleEl"
+          style="background: rgb(220, 45, 54);"
+        />
+        <div
+          class="circle"
+          data-testid="circleEl"
+          style="background: rgb(108, 255, 240);"
+        />
+      </div>
+    </nav>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

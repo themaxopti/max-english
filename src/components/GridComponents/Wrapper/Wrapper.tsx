@@ -4,7 +4,11 @@ import { Header } from '../Header/Header'
 import { HeaderMobile } from '../HeaderMobile/HeaderMobile'
 import { HeaderMobileContainer } from '../HeaderMobile/HeaderMobileContainer'
 import { motion } from 'framer-motion'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { useMediaQuery } from 'react-responsive'
+import { useSelector } from 'react-redux'
+import { mainTheme } from '../../../modules/ThemeModule/state/selectors/theme.selectors'
+import { Navbar, NavbarPortal } from '../../../modules/NavbarModule/components/Navbar/Navbar'
 
 interface WrapperProps {
   children: any
@@ -13,35 +17,40 @@ interface WrapperProps {
 export const Wrapper: React.FC<WrapperProps> = ({ children }) => {
   const [domLoaded, setDomLoaded] = useState(false)
   const [render, setrender] = useState(false)
+  const color = useSelector(mainTheme)
+  const mainThemee = useSelector(mainTheme)
 
-  const isSmall = useMediaQuery({
-    query: '(max-width: 992px)'
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: color.primaryColor
+      },
+      secondary: {
+        main: '#FF40BC'
+      },
+      info: {
+        main: '#FC00DF'
+      }
+    }
   })
-  const isBig = useMediaQuery({
-    query: '(min-width: 992px)'
-  })
-  useEffect(() => {
-    console.log(isSmall)
-    console.log(isBig)
-
-    setDomLoaded(true)
-  }, [])
-
-  useEffect(() => {
-    setrender(!render)
-    console.log(isSmall)
-  }, [isSmall])
-
-  useEffect(() => {
-    setrender(!render)
-    console.log(isBig)
-  }, [isBig])
 
   return (
     <>
-      {isBig && domLoaded ? <Header /> : <HeaderMobileContainer />}
-      {/* {isSmall && domLoaded ? <HeaderMobileContainer /> : ''} */}
-      <div>sadas</div>
+      <style global jsx>
+        {`
+          body {
+            background-color: ${mainThemee.bodyColor};
+          }
+        `}
+      </style>
+      {/* <NavbarPortal className='portal'> */}
+      <Navbar />
+      {/* </NavbarPortal> */}
+      <ThemeProvider theme={theme}>
+        {<Header />}
+        {<HeaderMobileContainer />}
+        {/* {<div style={{ height: '1000px' }}>{children}</div>} */}
+      </ThemeProvider>
     </>
   )
 }

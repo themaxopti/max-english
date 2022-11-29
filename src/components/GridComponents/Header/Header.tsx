@@ -1,7 +1,7 @@
 import classNames from 'classnames'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import Link from 'next/link'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import { Img } from '../../Img/Img'
 import s from './Header.module.scss'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
@@ -10,64 +10,38 @@ import { motion } from 'framer-motion'
 import { Language } from '../../../modules/LanguageModule/components/Language/Language'
 import { Theme } from '../../../modules/ThemeModule/components/Theme/Theme'
 import { useRouter } from 'next/router'
+import { Logo } from './test/Logo'
+import { HeaderLink } from './HeaderLink/HeaderLink'
+import { HeaderLinks } from './HeaderLink/HeaderLinks'
+import { useAppSelector } from '../../../store/store'
+import {
+  languagesArraySelector,
+  mainLanguageSelector
+} from '../../../modules/LanguageModule/state/selectors/language.selectors'
 
-export const Header = () => {
-  const links = ['dictionary', 'training', 'learning', 'login', 'chat']
-  const [active, setActive] = useState('dictionary')
-  const router = useRouter()
+export const Header = React.memo(() => {
+  const [render, setrender] = useState(false)
 
-  useEffect(() => {
-    if (!router.isReady) return
-    // if (!router.query.page) {
-    //   router.push({ query: { page: currentPage } })
-    // }
-    // setActive(router.query.page as string)
-  }, [router.isReady])
+  const languages = useAppSelector(languagesArraySelector)
+  const mainLanuage = useAppSelector(mainLanguageSelector)
+  // const currentLanuage
 
-  function headerLinkClasses(name: string) {
-    return classNames({
-      [s.header__link]: true,
-      [s['header__link-active']]: name === router.query.page ? true : false
-    })
-  }
+  // console.log('render')
 
   return (
     <>
+      {/* <div onClick={() => setrender(!render)}>render</div> */}
       <Container>
-        <div data-testid="header" className={s.header}>
+        <div data-testid='header' className={s.header}>
           <div className={s.header__logo}>
             <div>
               <Link href='/'>
-                <Image
-                  layout='responsive'
-                  alt=''
-                  width={180}
-                  height={65}
-                  src={'/images/GridComponents/logo.svg'}
-                />
+                <Logo className='app-logo-pc' />
               </Link>
             </div>
           </div>
 
-          <motion.div className={s.header__links}>
-            {links.map((el, i) => (
-              <motion.div key={i} className={headerLinkClasses(el)} onClick={() => setActive(el)}>
-                <Link
-                  className={s.link}
-                  // style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center' }}
-                  href={{ pathname: `/${el}`, query: { page: el } }}
-                >
-                  <nav>{el}</nav>
-                  {router.query.page === el && (
-                    <motion.div
-                      layoutId='underline'
-                      className={s['header__link-line']}
-                    ></motion.div>
-                  )}
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
+          <HeaderLinks />
 
           <div className={s.header__utils}>
             <div className={s['header__lang-color']}>
@@ -81,4 +55,4 @@ export const Header = () => {
       </Container>
     </>
   )
-}
+})

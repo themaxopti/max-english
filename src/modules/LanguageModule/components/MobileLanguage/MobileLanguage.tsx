@@ -2,11 +2,21 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import s from './MobileLanguage.module.scss'
 import { useState, useCallback } from 'react'
+import {
+  languagesTitlesSelector,
+  mainLanguageSelector
+} from '../../state/selectors/language.selectors'
+import { useSelector } from 'react-redux'
+import { useAppDispatch, useAppSelector } from '../../../../store/store'
+import { changeMainLanguage } from '../../state/reducers/language.slice'
 
 export const MobileLanguage = () => {
   const [active, setActive] = useState(false)
-  const [currentLanuage, setCurrentLanuage] = useState('en')
-  const languages = ['ru', 'en', 'uk']
+  // const [currentLanuage, setCurrentLanuage] = useState('en')
+  // const languages = ['ru', 'en', 'uk']
+  const languages = useSelector(languagesTitlesSelector)
+  const dispatch = useAppDispatch()
+  const currentLanuage = useAppSelector(mainLanguageSelector).title
 
   return (
     <>
@@ -39,7 +49,11 @@ export const MobileLanguage = () => {
           className={s.header__language__content}
         >
           {languages.map((el, i) => (
-            <motion.div onClick={() => setCurrentLanuage(el)} whileHover={{ scale: 1.3 }} key={i}>
+            <motion.div
+              onClick={() => dispatch(changeMainLanguage(el))}
+              whileHover={{ scale: 1.3 }}
+              key={i}
+            >
               {el}
             </motion.div>
           ))}

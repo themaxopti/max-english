@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
+/// <reference types="redux-persist" />
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   images: {
     disableStaticImages: true,

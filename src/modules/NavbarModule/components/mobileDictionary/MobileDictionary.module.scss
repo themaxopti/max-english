@@ -1,0 +1,38 @@
+@import '/styles/variables.scss';
+
+.groups {
+    color: white;
+}
+
+.groups__nav {
+    max-width: 210px;
+    width: 90%;
+    height: 120px;
+    overflow-x: hidden;
+    cursor: pointer;
+
+    div {
+        cursor: pointer;
+
+    }
+}
+
+.groups__nav::-webkit-scrollbar-track {
+    border-radius: 1px;
+}
+
+.groups__nav::-webkit-scrollbar {
+    width: 5px;
+    height: '5px';
+}
+
+.groups__nav::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 5px;
+}
+
+@media(max-width:$lg) {
+    .groups {
+        color: black;
+    }
+}

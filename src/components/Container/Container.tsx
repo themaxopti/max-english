@@ -10,25 +10,21 @@ export interface ContainerProps {
   className?: string
 }
 
-export const Container: React.FC<ContainerProps> = ({
-  children,
-  padding,
-  columnDirection,
-  rowGap,
-  className
-}) => {
-  const classes = classNames([s.container], [className])
+export const Container: React.FC<ContainerProps> = React.memo(
+  ({ children, padding, columnDirection, rowGap, className }) => {
+    const classes = classNames([s.container], [className])
 
-  return (
-    <div
-      className={classes}
-      style={{
-        padding,
-        flexDirection: columnDirection ? 'column' : 'row',
-        rowGap
-      }}
-    >
-      {children}
-    </div>
-  )
-}
+    return (
+      <div
+        className={classes}
+        style={{
+          padding,
+          flexDirection: columnDirection ? 'column' : 'row',
+          rowGap
+        }}
+      >
+        {children}
+      </div>
+    )
+  }
+)
